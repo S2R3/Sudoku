@@ -16,4 +16,4 @@ click Open
 
 after Android Studio Gradle finishes to build,
 
-click the grrn arrow at top bar to run Project. 
+click the green arrow at top bar to run Project. 
