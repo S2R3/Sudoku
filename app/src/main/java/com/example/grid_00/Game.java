@@ -2,6 +2,13 @@
  * CS443, Spring 2021
  * Sergio Augusto De Sa
  *
+ * The purpose of this class is to hold the solution to
+ * the game and the user input.
+ * In the event a user chooses to save the state of the game,
+ * this class instantiate a new instance of State class to
+ * save the current state into an ArrayList.
+ * In the event a user choose to recover a previous saved state,
+ * this class recover the state of choice from the ArrayList.
  */
 
 package com.example.grid_00;
@@ -19,15 +26,25 @@ public class Game {
 
     Random random;
 
+    // to save the game solution
     private final int[] SUDOKU_SOLUTION;
+    // to save the initial solution give to user
     private final int[] INITIAL_SOLUTION;
+    // to save the user inputs to the game
     private int[] user_solution;
+    // to track the number of cells are assigned in the Sudoku grid
     private int marked_solution;
+    // to track the number of states are saved
     private int state_number;
+    // to display the state the user is playing
     private int current_state;
+    // the current cell in Sudoku grid
     private int position;
+    // the current choice in option keys
     private int option_position;
+    // to save states of the game
     private ArrayList<State> arrayList_state;
+    // to place users choice to Sudoku grid in sequence
     private Stack<Integer> stack_solution;
 
     private final int LIGHT_BLUE = 0xFFADD8E6;
@@ -99,9 +116,9 @@ public class Game {
     }
 
     /**
-     * delete the assign button grid value,
-     * if the value was assign by user,
-     * after initial state of the game
+     * delete the assign button grid value assigned by user,
+     * it will refuse to delete the values give to user
+     * at beginning of game.
      * @param position the grid index to delete
      */
     protected void delete_user_solution(int position) {
@@ -330,14 +347,28 @@ public class Game {
 
     }
 
+    /**
+     * to update the count of the number of cells
+     * are filled in the Sudoku grid
+     */
     protected void update_marked_solution() {
         marked_solution++;
     }
 
+    /**
+     * return the number of cells
+     * are filled in the Sudoku grid.
+     * @return number of cells used
+     */
     protected int get_marked_solution() {
         return marked_solution;
     }
 
+    /**
+     * to count the total number of mistakes user commit
+     * comparing user solution to sudoku solution
+     * @return the total number of wrong choices
+     */
     protected int calculate_mistakes() {
         int mistakes = 0;
         for (int i = 0; i < 81; i++) {
