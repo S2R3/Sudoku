@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/intro_1"
+    android:background="#008080"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/display_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:text="Sudoku Game" />
+
+    <TextView
+        android:id="@+id/display_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:text="9 X 9" />
+
+
+    <Button
+        android:id="@+id/intro_rules"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Rules" />
+
+    <Button
+        android:id="@+id/intro_how_to_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="How To Play" />
+
+    <Button
+        android:id="@+id/intro_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Play" />
+
+</LinearLayout>

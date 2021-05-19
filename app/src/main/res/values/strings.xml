@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Grid_00</string>
+    <string name="sudoku_game_9_x_9">Sudoku 9 X 9</string>
+    <string name="current_game">Current Game: </string>
+    <string name="game_number">1</string>
+    <string name="options">options</string>
+    <string name="check_solution">Check Solution</string>
+</resources>
