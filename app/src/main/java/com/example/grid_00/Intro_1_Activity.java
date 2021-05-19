@@ -1,7 +1,15 @@
+/*
+ * CS 443 - Spring 2021
+ * Sergio Augusto De Sa
+ *
+ * the purpose of this class is to handle the first layout
+ * user will see it.
+ * There are only three choices user can choose from.
+ */
+
 package com.example.grid_00;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +17,11 @@ import android.widget.Button;
 
 public class Intro_1_Activity extends AppCompatActivity {
 
+    // to change to rules layout
     Button rules;
+    // to change to How To Play layout
     Button how_to_play;
+    // to play the Sudoku game
     Button play;
 
     @Override

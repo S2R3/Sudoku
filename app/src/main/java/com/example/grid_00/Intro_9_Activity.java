@@ -1,3 +1,12 @@
+/*
+ * CS 443 - Spring 2021
+ * Sergio Augusto De Sa
+ *
+ * the purpose of this class is to handle the user
+ * "How To Play" option
+ * There are only choices choices user can choose from here.
+ */
+
 package com.example.grid_00;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +18,9 @@ import android.widget.Button;
 
 public class Intro_9_Activity extends AppCompatActivity {
 
+    // to return to the previous menu
     Button return_back;
+    // to play Sudoku game
     Button play;
 
     @Override
