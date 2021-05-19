@@ -2,20 +2,21 @@
  * CS443, Spring 2021
  * Sergio Augusto De Sa
  *
+ * This class is responsible to manage user interaction to
+ * the layout where the Sudoku game is played.
+ * User click in options and grid keys to play the game.
+ * Class Game is where the game is generated.
+ * Class Grid is where the Sudoku grid is located.
+ * Class Option is where user choose values to add to the grid.
+ * Control class have access to the classes above.
  */
 
 package com.example.grid_00;
 
-import android.content.Intent;
-import android.widget.Toast;
-
 public class Control {
 
     private final int LIGHT_BLUE = 0xFFADD8E6;
-    private final int BLACK = 0x000000;
-    private final int CRIMSON = 0xFFDC143C;
     private final int LIGHT_GOLDEN_ROD_YELLOW = 0xFFFAFAD2;
-    private final int SEA_GREEN = 0xFF2E8B57;
     private final int WHITE_SMOKE = 0xFFF5F5F5;
     private Grid grid;
     private Option option;
@@ -36,7 +37,8 @@ public class Control {
     }
 
     /**
-     *
+     * update grid buttons to display the same color
+     * as the current option user choice
      */
     protected void update_option_display() {
         int option_position = option.get_option_position();
@@ -53,13 +55,11 @@ public class Control {
      * update the display
      * The display is updated either by clicking at option or grid keys.
      * The click on option or grid keys will result in one of
-     * the three different paths bellow:
-     * 1: if user click in a empty value button,
-     * the clicked button will update to display the current option button value.
-     * 2: if user click in a button with an assigned value,
+     * the two different paths bellow:
+     * 1: if user click in a button with an assigned value,
      * clicked button, and all keys with same value will change background color
      * current_option_position will update to the value of clicked button.
-     * 3: if user click in an option key.
+     * 2: if user click in an option key.
      * option key will change background color
      * all grid_key with same value of current_option_key will change background color.
      */
@@ -213,15 +213,31 @@ public class Control {
         game.delete_user_solution(index);
     }
 
+    /**
+     * to get the number of solutions already  filled in
+     * the main Sudoku grid.
+     * @return marked_solution
+     */
     protected int get_marked_solution(){
         marked_solution = game.get_marked_solution();
         return marked_solution;
     }
 
+    /**
+     * to return the number of mistakes found in
+     * the main Sudoku grid.
+     * @return number of wrong keys
+     */
     protected int get_mistakes() {
         return game.calculate_mistakes();
     }
 
+    /**
+     * to find the solution to an index in
+     * the main Sudoku grid.
+     * @param index
+     * @return solution
+     */
     protected int get_solution_at(int index) {
         return game.get_sudoku_solution_at(index);
     }
