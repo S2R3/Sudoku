@@ -11,8 +11,6 @@
 package com.example.grid_00;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -23,20 +21,21 @@ import android.widget.LinearLayout;
 import android.util.Log;
 import android.widget.TextView;
 
-import androidx.core.content.IntentCompat;
-
-
 public class Grid_Activity extends Activity {
 
     // the 81 buttons that solve the sudoku game
     private Grid grid;
     // the 9 buttons that are used to assign value to grid buttons
     private Option option;
-    private TextView game_counter;
-    private int counter;
+    // the value to display the countdown timer
+    private TextView game_timer;
+    // to track time interval change
+    private int update_timer;
+    // to enable the option to delete a value
     private boolean delete_button_value = false;
     Log v;
 
+    // to track the time user takes to solve the Sudoku game
     private CountDownTimer timer;
     private long millisInFuture = 50000000;
     private long countDownInterval = 1000;
@@ -49,7 +48,7 @@ public class Grid_Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid_layout);
 
-        game_counter = (TextView) findViewById(R.id.game_couter);
+        game_timer = (TextView) findViewById(R.id.game_couter);
 
 
         timer = new CountDownTimer(millisInFuture, countDownInterval) {
@@ -57,8 +56,8 @@ public class Grid_Activity extends Activity {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                game_counter.setText(String.valueOf(counter));
-                counter++;
+                game_timer.setText(String.valueOf(update_timer));
+                update_timer++;
                 int stop = control.get_marked_solution();
             }
 
@@ -82,9 +81,9 @@ public class Grid_Activity extends Activity {
 
     /**
      * the listener to trigger in case user click
-     * on any of the grid 81 grid buttons
-     * if the boolean delete_button_value is true,
-     * the button will delete_button_value the assigned value
+     * on any of the grid 81 grid buttons.
+     * If the boolean delete_button_value is true,
+     * the button is enable to delete button grid values
      * if the button is false, the listener will pass
      * the button index to grid, from there grid
      * will update button accordingly.
@@ -103,16 +102,19 @@ public class Grid_Activity extends Activity {
 
                         int stop = control.get_marked_solution();
                         if (stop == 81) {
-                            //go_final(v);
-                            go_final();
+                            end_sudoku();
                         }
                     }
                 }
             });
         }
     }
-    public void go_final() {
 
+    /**
+     * this function is responsible to update the grid_layout
+     * after the user make the final choice to fill the grid.
+     */
+    public void end_sudoku() {
         LinearLayout linearLayout_parent =
                 (LinearLayout) findViewById(R.id.parent_layout);
         LinearLayout linearLayout_image_butons =
@@ -140,21 +142,24 @@ public class Grid_Activity extends Activity {
         game_info.setText("Mistakes");
         current_game.setText(String.valueOf(control.get_mistakes()));
         option.setText("GAME OVER");
-        button_mistakes();
+        // to handler the user mistakes
+        find_mistakes();
+        // to stop countdown timer
         timer.onFinish();
     }
 
-    private void button_mistakes() {
-        System.out.println("Grid_Activity, +++++++++++++++++++++++line 148");
+    /**
+     * this function is responsible to change text color of
+     * wrong user input to red
+     */
+    private void find_mistakes() {
         Button check_value;
         int button_value;
         for (int i = 0; i < 81; i++) {
-            System.out.println("Grid_Activity, +++++++++++++++++++++++line 152");
             check_value = grid.get_button(i);
             button_value = grid.get_grid_button_int_value_At(i);
             if (button_value != control.get_solution_at(i)) {
                 check_value.setTextColor(Color.RED);
-                System.out.println("Grid_Activity, +++++++++++++++++++++++line 157");
             }
         }
     }
@@ -317,7 +322,7 @@ public class Grid_Activity extends Activity {
     }
 
     /**
-     * the the button value at user click
+     * the index of button user click wants to delete
      * @param index the index of the clicked button
      */
     private void handler_delete(int index) {
