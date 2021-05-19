@@ -9,8 +9,8 @@
  * There are a total of 81 Buttons.
  * At start state, some Buttons choose randomly
  * will have the Sudoku solution assigned value,
- * users are not permitted to change their value
- * the rest of Buttons user are free to assign value, and change as desired.
+ * users are not permitted to change their value.
+ * The rest of Buttons user are free to assign value, and change as desired.
  **/
 
 package com.example.grid_00;
