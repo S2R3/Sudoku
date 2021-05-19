@@ -33,7 +33,7 @@ public class Control {
         game = new Game(grid, option);
         current_option_position = 0;
         set_option_background_color();
-        marked_solution = game.get_marked_solution();
+        //marked_solution = game.get_marked_solution();
     }
 
     /**
@@ -86,6 +86,7 @@ public class Control {
             set_default_background_color();
             set_option_background_color();
             game.update_marked_solution();
+            /*
             if(game.get_marked_solution() == 81) {
                 System.out.println("Control, line 85, Game over marked is: " +
                         game.get_marked_solution());
@@ -93,6 +94,7 @@ public class Control {
                 System.out.println("Control, line 87; marked is: " + game.get_marked_solution());
             }
             Print_Message.message_int("Control",80, "button value: ", current_option_position);
+            */
         }
 
     }
@@ -218,9 +220,10 @@ public class Control {
      * the main Sudoku grid.
      * @return marked_solution
      */
-    protected int get_marked_solution(){
-        marked_solution = game.get_marked_solution();
-        return marked_solution;
+    protected boolean get_marked_solution(){
+        //marked_solution = game.get_marked_solution();
+        //return marked_solution;
+        return  game.get_marked_solution();
     }
 
     /**
@@ -240,5 +243,9 @@ public class Control {
      */
     protected int get_solution_at(int index) {
         return game.get_sudoku_solution_at(index);
+    }
+
+    protected void print_array_user_solution() {
+        game.print_array_user_solutio();
     }
 }

@@ -33,7 +33,7 @@ public class Game {
     // to save the user inputs to the game
     private int[] user_solution;
     // to track the number of cells are assigned in the Sudoku grid
-    private int marked_solution;
+    private int marked_grid_counting;
     // to track the number of states are saved
     private int state_number;
     // to display the state the user is playing
@@ -66,7 +66,7 @@ public class Game {
         // hold the initial state, and any user additional choice
         user_solution = new int[81];
         // the number of buttons already filled with values
-        marked_solution = 42;
+        marked_grid_counting = 42;
         // the number of states of the game
         state_number = -1;
         // the current sate of the game
@@ -232,7 +232,7 @@ public class Game {
         position = grid.get_grid_position();
         option_position = option.get_option_position();
 
-        state = new State(copy_user_solution, marked_solution,
+        state = new State(copy_user_solution, marked_grid_counting,
                             position, option_position,
                             copy_stack_solution);
         arrayList_state.add(state);
@@ -260,7 +260,7 @@ public class Game {
                 user_solution[i] = recovered_user_solution[i];
 
             }
-            marked_solution = state_recovered.get_marked_solution();
+            marked_grid_counting = state_recovered.get_marked_grid_counting();
             position = state_recovered.get_position();
             option_position = state_recovered.get_option_position();
             Stack<Integer> recovered_stack_solution;
@@ -297,7 +297,7 @@ public class Game {
 
                 user_solution[i] = recovered_user_solution[i];
             }
-            marked_solution = state_recovered.get_marked_solution();
+            marked_grid_counting = state_recovered.get_marked_grid_counting();
             position = state_recovered.get_position();
             option_position = state_recovered.get_option_position();
             Stack<Integer> recovered_stack_solution;
@@ -352,7 +352,7 @@ public class Game {
      * are filled in the Sudoku grid
      */
     protected void update_marked_solution() {
-        marked_solution++;
+        marked_grid_counting++;
     }
 
     /**
@@ -360,8 +360,16 @@ public class Game {
      * are filled in the Sudoku grid.
      * @return number of cells used
      */
-    protected int get_marked_solution() {
-        return marked_solution;
+    protected boolean get_marked_solution() {
+    //protected int get_marked_solution() {
+        boolean grid_completed = true;
+        for (int i = 0; i < 81; i++) {
+            if (user_solution[i] == 0) {
+                grid_completed = false;
+            }
+        }
+        //return marked_grid_counting;
+        return grid_completed;
     }
 
     /**
@@ -379,6 +387,9 @@ public class Game {
         return mistakes;
     }
 
+    protected void print_array_user_solutio() {
+        Print_Array.print_array(user_solution);
+    }
 }
 
 

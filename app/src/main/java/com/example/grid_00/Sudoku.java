@@ -535,5 +535,4 @@ public class Sudoku {
         sudoku[79] = nine;
 
     }
-
 }

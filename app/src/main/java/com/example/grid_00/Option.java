@@ -4,9 +4,11 @@
  *
  * Class Option
  * the purpose of this class is to save the buttons available to
- * user select as a value to fill the remaining grid buttons
+ * user select their value.
+ * The button option value  can fill remaining grid buttons
  * without assigned value.
- * the array has a capacity to hold 9 buttons,
+ * The option buttons are saved in an array.
+ * The array has a capacity to hold 9 buttons,
  * button 0, means to fill value 1, ... button 8, to fill value 9.
  */
 

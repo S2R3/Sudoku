@@ -1,3 +1,11 @@
+/*
+ * CS 443 - Spring 2021
+ * Sergio Augusto De Sa
+ *
+ * the purpose of this class is to display the Rules of the game
+ * There are only two choices user can choose from here.
+ */
+
 package com.example.grid_00;
 
 import android.app.Activity;
@@ -8,7 +16,9 @@ import android.widget.Button;
 
 public class Rules_Activity extends Activity {
 
+    // to play the game
     Button play;
+    // to return to the previous menu option.
     Button return_main;
 
     @Override

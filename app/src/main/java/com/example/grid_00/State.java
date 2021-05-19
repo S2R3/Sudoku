@@ -13,10 +13,15 @@ import java.util.Stack;
 
 public class State {
 
+    // the array that hold the values user filled the grid
     private int[] user_solution;
-    private int marked_solution;
-    private int position;
+    // to track the total cells is assigned in grid Sudoku
+    private int marked_grid_counting;
+    // to track the state number to handle
+    private int state_number;
+    // the position of option key button
     private int option_position;
+    // the stack of user input in sequence.
     private Stack<Integer> stack_solution;
 
 
@@ -27,8 +32,8 @@ public class State {
                  Stack<Integer> stack_solution ) {
 
         this.user_solution = user_solution;
-        this.marked_solution =  marked_solution;
-        this.position = position;
+        this.marked_grid_counting =  marked_solution;
+        this.state_number = position;
         this.option_position = option_position;
         this.stack_solution = stack_solution;
 
@@ -45,11 +50,12 @@ public class State {
     }
 
     /**
-     * the number of buttons with values already assigned
+     * the total number of buttons with values already assigned
+     * in the Sudoku grid
      * @return marked_solution
      */
-    protected int get_marked_solution() {
-        return marked_solution;
+    protected int get_marked_grid_counting() {
+        return marked_grid_counting;
     }
 
     /**
@@ -57,7 +63,7 @@ public class State {
      * @return position
      */
     protected int get_position() {
-        return position;
+        return state_number;
     }
 
     /**

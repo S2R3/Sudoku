@@ -34,6 +34,9 @@ public class Grid_Activity extends Activity {
     // to enable the option to delete a value
     private boolean delete_button_value = false;
     Log v;
+    // to track the grid last user input
+    //private int stop;
+    private boolean stop = false;
 
     // to track the time user takes to solve the Sudoku game
     private CountDownTimer timer;
@@ -58,7 +61,7 @@ public class Grid_Activity extends Activity {
 
                 game_timer.setText(String.valueOf(update_timer));
                 update_timer++;
-                int stop = control.get_marked_solution();
+                //int stop = control.get_marked_solution();
             }
 
             @Override
@@ -100,8 +103,11 @@ public class Grid_Activity extends Activity {
                         grid.set_grid_position(index);
                         control.update_grid_display();
 
-                        int stop = control.get_marked_solution();
-                        if (stop == 81) {
+                        //stop = control.get_marked_solution();
+                        stop = control.get_marked_solution();
+                        if (stop) {
+                        //if (stop == 81) {
+                            control.print_array_user_solution();
                             end_sudoku();
                         }
                     }
@@ -326,7 +332,7 @@ public class Grid_Activity extends Activity {
      * @param index the index of the clicked button
      */
     private void handler_delete(int index) {
-
+        //stop--;
         control.delete_handler(index);
     }
 
