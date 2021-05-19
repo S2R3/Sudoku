@@ -22,7 +22,6 @@ public class Control {
     private Option option;
     private Game game;
     private int current_option_position;
-    private int marked_solution;
 
     public Control(Grid grid, Option option) {
 
@@ -33,7 +32,6 @@ public class Control {
         game = new Game(grid, option);
         current_option_position = 0;
         set_option_background_color();
-        //marked_solution = game.get_marked_solution();
     }
 
     /**
@@ -85,16 +83,6 @@ public class Control {
             grid.set_text(grid_position, String.valueOf(current_option_position + 1));
             set_default_background_color();
             set_option_background_color();
-            game.update_marked_solution();
-            /*
-            if(game.get_marked_solution() == 81) {
-                System.out.println("Control, line 85, Game over marked is: " +
-                        game.get_marked_solution());
-            } else {
-                System.out.println("Control, line 87; marked is: " + game.get_marked_solution());
-            }
-            Print_Message.message_int("Control",80, "button value: ", current_option_position);
-            */
         }
 
     }
@@ -216,13 +204,11 @@ public class Control {
     }
 
     /**
-     * to get the number of solutions already  filled in
-     * the main Sudoku grid.
+     * to check if all solutions already  filled 
+     * in the main Sudoku grid.
      * @return marked_solution
      */
     protected boolean get_marked_solution(){
-        //marked_solution = game.get_marked_solution();
-        //return marked_solution;
         return  game.get_marked_solution();
     }
 
@@ -246,6 +232,6 @@ public class Control {
     }
 
     protected void print_array_user_solution() {
-        game.print_array_user_solutio();
+        game.print_array_user_solution();
     }
 }

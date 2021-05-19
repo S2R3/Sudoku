@@ -15,9 +15,6 @@ public class State {
 
     // the array that hold the values user filled the grid
     private int[] user_solution;
-    // to track the total cells is assigned in grid Sudoku
-    private int marked_grid_counting;
-    // to track the state number to handle
     private int state_number;
     // the position of option key button
     private int option_position;
@@ -26,19 +23,14 @@ public class State {
 
 
     public State(int[] user_solution,
-                 int marked_solution,
                  int position,
                  int option_position,
                  Stack<Integer> stack_solution ) {
 
         this.user_solution = user_solution;
-        this.marked_grid_counting =  marked_solution;
         this.state_number = position;
         this.option_position = option_position;
         this.stack_solution = stack_solution;
-
-        //System.out.println("State, line 26, the array of this state ");
-        //Print_Array.print_array(user_solution);
     }
 
     /**
@@ -47,15 +39,6 @@ public class State {
      */
     protected int[] get_user_solution() {
         return user_solution;
-    }
-
-    /**
-     * the total number of buttons with values already assigned
-     * in the Sudoku grid
-     * @return marked_solution
-     */
-    protected int get_marked_grid_counting() {
-        return marked_grid_counting;
     }
 
     /**
