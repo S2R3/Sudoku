@@ -231,6 +231,10 @@ public class Control {
         return game.get_sudoku_solution_at(index);
     }
 
+    /**
+     * For debugger user,
+     * Print the user input to the grid
+     */
     protected void print_array_user_solution() {
         game.print_array_user_solution();
     }

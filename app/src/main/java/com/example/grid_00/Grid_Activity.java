@@ -81,7 +81,7 @@ public class Grid_Activity extends Activity {
 
 
     /**
-     * the listener to trigger in case user click
+     * the listener to trigger when user click
      * on any of the grid 81 grid buttons.
      * If the boolean delete_button_value is true,
      * the button is enable to delete button grid values
@@ -113,7 +113,9 @@ public class Grid_Activity extends Activity {
 
     /**
      * this function is responsible to update the grid_layout
-     * after the user make the final choice to fill the grid.
+     * as it shows in when the Game is Over
+     * the grid will remove buttons,
+     * and update text views display
      */
     public void end_sudoku() {
         LinearLayout linearLayout_parent =
@@ -150,8 +152,8 @@ public class Grid_Activity extends Activity {
     }
 
     /**
-     * this function is responsible to change text color of
-     * wrong user input to red
+     * this function is responsible to change the color
+     * of text in buttons to red, in case the input is incorrect.
      */
     private void find_mistakes() {
         Button check_value;
