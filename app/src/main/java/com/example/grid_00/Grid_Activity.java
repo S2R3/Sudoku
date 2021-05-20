@@ -142,7 +142,7 @@ public class Grid_Activity extends Activity {
         linearLayout_bottom.removeView(imageButton_previous_play);
         linearLayout_bottom.removeView(button_remove);
 
-        game_info.setText("Mistakes");
+        game_info.setText("Error Count: ");
         current_game.setText(String.valueOf(control.get_mistakes()));
         option.setText("GAME OVER");
         // to handler the user mistakes
