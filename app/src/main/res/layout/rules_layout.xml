@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
-    android:background="#f0ffff"
+    android:background="#8fbc8f"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".Rules_Activity">
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:text="Rules"
+            android:text="RULE"
             android:textAlignment="center"
             android:textColor="#dc143c"
             android:textSize="40sp" />
